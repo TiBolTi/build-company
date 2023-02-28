@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HouseController;
+use App\Http\Controllers\ApartmentController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\SaleController;
+use App\Http\Controllers\HousesListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('/');
+
+Route::resource('houses',HouseController::class);
+Route::resource('apartments',ApartmentController::class);
+Route::resource('clients',ClientController::class);
+Route::resource('sales', SaleController::class);
+Route::resource('houses_list', HousesListController::class);
